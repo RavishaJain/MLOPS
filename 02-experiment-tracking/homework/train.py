@@ -36,4 +36,13 @@ def run_train(data_path: str):
        
 
 if __name__ == '__main__':
-    run_train()
+
+    parser = argparse.ArgumentParser()
+    parser.add_argument(
+        "--data_path",
+        default="./output",
+        help="the location where the processed NYC taxi trip data was saved."
+    )
+    args = parser.parse_args()
+
+    run(args.data_path)
