@@ -7,11 +7,7 @@ from sklearn.metrics import mean_squared_error
 
 import mlflow
 
-#################################################################
-## Piyush | Updates
-# Autolog feature to enable logging for paramas and metrics.
-# mlflow.<framework_name>.autolog()
-#################################################################
+
 
 
 mlflow.set_tracking_uri("sqlite:///mlflow.db")
@@ -34,7 +30,9 @@ def run(data_path):
     rf.fit(X_train, y_train)
     y_pred = rf.predict(X_valid)
 
-    rmse = mean_squared_error(y_valid, y_pred, squared=False)
+    mse = mean_squared_error(y_valid, y_pred)
+    rmse = mse ** 0.5
+
 
 
 if __name__ == '__main__':
