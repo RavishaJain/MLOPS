@@ -33,7 +33,7 @@ def run_train(data_path: str):
         y_pred = rf.predict(X_val)
 
         rmse = mean_squared_error(y_val, y_pred) ** 0.5
-        print(f"RMSE: {rmse}")
+       
 
 if __name__ == '__main__':
     run_train()
