@@ -34,7 +34,7 @@ def run(data_path):
     rf.fit(X_train, y_train)
     y_pred = rf.predict(X_valid)
 
-    rmse = mean_squared_error(y_valid, y_pred, squared=False)
+     rmse = mean_squared_error(y_val, y_pred) ** 0.5
 
 
 if __name__ == '__main__':
