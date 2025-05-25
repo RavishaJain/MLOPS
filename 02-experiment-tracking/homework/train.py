@@ -22,16 +22,16 @@ def load_pickle(filename: str):
 def run(data_path):
 
     with mlflow.start_run():
-    mlflow.sklearn.autolog()
-    X_train, y_train = load_pickle(os.path.join(data_path, "train.pkl"))
-    X_valid, y_valid = load_pickle(os.path.join(data_path, "val.pkl"))
+        mlflow.sklearn.autolog()
+        X_train, y_train = load_pickle(os.path.join(data_path, "train.pkl"))
+        X_valid, y_valid = load_pickle(os.path.join(data_path, "val.pkl"))
 
-    rf = RandomForestRegressor(max_depth=10, random_state=0)
-    rf.fit(X_train, y_train)
-    y_pred = rf.predict(X_valid)
+        rf = RandomForestRegressor(max_depth=10, random_state=0)
+        rf.fit(X_train, y_train)
+        y_pred = rf.predict(X_valid)
 
-    mse = mean_squared_error(y_valid, y_pred)
-    rmse = mse ** 0.5
+        mse = mean_squared_error(y_valid, y_pred)
+        rmse = mse ** 0.5
 
 
 
